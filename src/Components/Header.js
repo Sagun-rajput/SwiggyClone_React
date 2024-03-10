@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {Svg_Logo} from "../../Utils/constants"
 import { Link } from "react-router-dom"
+import useOnlineStatus from "../../Utils/useOnlineStatus";
 
 const Header = ()=>{
 
@@ -13,6 +14,7 @@ return(<div className="header">
         <h2 className="headline">Food Delivery App</h2>
         <div className="nav-header">
             <ul className="navItems">
+                <li>Online Status: {useOnlineStatus() ? '🟢': '🔴'}</li>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/aboutus">About Us</Link></li>
                 <li><Link to="/contact">Contact Us</Link></li>

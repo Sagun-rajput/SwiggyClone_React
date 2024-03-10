@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../Utils/useOnlineStatus";
 // import {resDataObj} from "../../Utils/mockData"
 
 const Body =() =>{
@@ -22,7 +23,9 @@ const fetchData = async () => {
     }
     catch(err){console.error(err);}
 }
-
+if(!useOnlineStatus()){
+    return <div>Looks like you are offline! Please check your internet connection.</div>
+}
 if(restDataObj.length === 0){
     return <h4 className="loader">Loading-----</h4>
 }
