@@ -12,7 +12,9 @@ async function fetchData(){
 
     const data = await MenuData.json();
     setRestaurantData(data?.data?.cards[0]?.card?.card?.info)
-    setMenuItems(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
+    setMenuItems(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+    // console.log(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+
 }
  return [restaurantData,menuItems];
 }
