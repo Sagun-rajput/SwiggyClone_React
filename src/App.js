@@ -7,12 +7,15 @@ import AboutUs from './Components/AboutUs';
 import ContactUs from './Components/ContactUS';
 import Error404 from './Components/Error404';
 import RestaurantMenu from './Components/RestaurantMenu';
+import userNameContext from './../Utils/userNameContext';
 
 const AppComponent = () =>{
 
   return ( <div className="app">
+    <userNameContext.Provider value={{userName:"sagun"}}>
         <Header />
         <Outlet/>
+    </userNameContext.Provider>
     </div>
 )}
 

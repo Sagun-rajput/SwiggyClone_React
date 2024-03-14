@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../Utils/useOnlineStatus";
+import userNameContext from "../../Utils/userNameContext";
 // import {resDataObj} from "../../Utils/mockData"
 
 const Body =() =>{
-
+let {userName} = useContext(userNameContext);
 let [restDataObj, setrestDataObj] = useState([]);
 let [searchText, setsearchText] = useState("");
 let [filteredResData, setfilteredResData] = useState([]);
@@ -48,7 +49,7 @@ return(
         <div className='card-header'>
     {filteredResData.map((restaurant)=>
     (
-        <Link key= {restaurant.info.id} className="tdn" to={"/restaurant/"+restaurant.info.id}><Card resData = {restaurant}/></Link>))}
+        <Link key= {restaurant.info.id} className="tdn" to={"/restaurant/"+restaurant.info.id}><Card resData = {restaurant} userName ={userName}/></Link>))}
         </div>
     </div>)
 }

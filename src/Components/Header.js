@@ -8,7 +8,6 @@ const Header = ()=>{
 
 const [loginText, setLoginText] = useState("Login");
 const {userName} = useContext(userNameContext);
-console.log("User", userName)
 return(<div className="header">
         <div className="header-logo">
             {Svg_Logo}
@@ -21,7 +20,7 @@ return(<div className="header">
                 <li><Link to="/aboutus">About Us</Link></li>
                 <li><Link to="/contact">Contact Us</Link></li>
                 <li>Cart</li>
-                <li></li>
+                <li>{userName}</li>
                 <li><button onClick={()=>loginText==="Login"?setLoginText("Logout"):setLoginText("Login")} className="login" type="button">{loginText}</button></li>
             </ul>
         </div>

@@ -1,7 +1,7 @@
 import {IMG_CDN} from "../../Utils/constants"
 
 const Card =(props)=>{
-    const {resData} = props;
+    const {resData, userName} = props;
     const {name, cloudinaryImageId, cuisines, costForTwo, avgRating, sla, veg} = resData.info;
     return (<div className="card-container">
             <img alt="res Img" height="120px" width="100%" className='res-Image'  src={IMG_CDN+cloudinaryImageId}/>
@@ -10,6 +10,7 @@ const Card =(props)=>{
             <div className='mt5'>{costForTwo}</div>
             <div className='mt5'>{avgRating} Stars</div>
             <div className='mt5 df vegN'>{sla.deliveryTime} minutes</div>
+            <div className='mt5'>{userName}</div>
             <div className="mt5">{veg ? "Veg": "Non-Veg"} </div>
         </div>
 )}
